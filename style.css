@@ -1,7 +1,4 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
+@import url("reset.css");
 
 :root {
   --clr-red: hsl(0, 78%, 62%);
@@ -11,33 +8,132 @@
   --clr-Grey-500: hsl(234, 12%, 34%);
   --clr-Grey-400: hsl(212, 6%, 44%);
   --clr-White: hsl(0, 0%, 100%);
+  --ff-sans: "Poppins", sans-serif;
+  --fw-bold: 600;
+  --fw-normal: 400;
+  --fw-light: 200;
+  --fs-400: 0.94rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.65rem;
+  --fs-900: 2.5rem;
+  --gap: 2em;
 }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: var(--ff-sans);
   margin: 0;
+  font-size: var(--fs-normal);
 }
 
 .container {
   width: 80%;
-  margin: 80px auto;
+  margin: 0 auto;
   color: var(--clr-Grey-400);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--gap) 0;
 }
 
 .container__text {
-  font-size: 2.8rem;
+  font-size: 1.5rem;
   font-weight: 200;
 }
 
 .container__title {
   color: var(--clr-Grey-500);
-  font-size: 2.8rem;
+  font-size: 1.5rem;
   margin-bottom: 0.3em;
 }
 
 .content__description {
-  font-size: 1.6rem;
   font-weight: 400;
   margin-bottom: 2em;
-  text-align: center;
+}
+
+.container__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--gap);
+}
+
+.icon:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+  border-radius: 0.5em;
+  background-color: var(--clr-White);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+
+  & img {
+    margin-top: 2em;
+    align-self: end;
+  }
+
+  .card__title {
+    color: var(--clr-Grey-500);
+    margin-bottom: 0.5em;
+  }
+}
+
+.card--supervisor {
+  border-top: 0.4em solid var(--clr-Cyan);
+}
+
+.card--team-builder {
+  border-top: 0.4em solid var(--clr-red);
+}
+
+.card--karma {
+  border-top: 0.4em solid var(--clr-Orange);
+}
+
+.card--calculator {
+  border-top: 0.4em solid var(--clr-Blue);
+}
+
+.attribution {
+  display: none;
+}
+
+@media screen and (min-width: 568px) {
+  * {
+    margin-bottom: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .container--narrow {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .content__description {
+      text-align: center;
+    }
+  }
+
+  .container__cards {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  .container__cards > * {
+    flex: 1;
+  }
 }
