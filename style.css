@@ -26,6 +26,7 @@ body {
 }
 
 .container {
+  --_margin-bottom: 0.3em;
   width: 80%;
   margin: 0 auto;
   color: var(--clr-Grey-400);
@@ -38,18 +39,19 @@ body {
 }
 
 .container__text {
-  font-size: 1.5rem;
-  font-weight: 200;
+  font-size: var(--fs-600);
+  font-weight: var(--fw-light);
+  margin-bottom: var(--_margin-bottom);
 }
 
 .container__title {
   color: var(--clr-Grey-500);
-  font-size: 1.5rem;
-  margin-bottom: 0.3em;
+  font-size: var(--fs-600);
+  margin-bottom: var(--_margin-bottom);
 }
 
 .content__description {
-  font-weight: 400;
+  font-weight: var(--fw-normal);
   margin-bottom: 2em;
 }
 
